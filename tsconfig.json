@@ -19,5 +19,8 @@
       "compilerOptions": {
          "module": "CommonJS"
       }
-   }
+   },
+   "include": ["./config/jest/setupTests.ts", "./src/**/*"],
+
+   "types": ["node", "jest", "@testing-library/jest-dom"]
 }
