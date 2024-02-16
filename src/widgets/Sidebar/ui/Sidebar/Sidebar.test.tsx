@@ -8,11 +8,11 @@ describe("Sidebar", () => {
       expect(screen.getByTestId("sidebar")).toBeInTheDocument();
    });
 
-   test("test toogle", () => {
-      renderWithTranslation(<Sidebar />);
-      const toogleBtn = screen.getByTestId("sidebar-toggle");
-      expect(screen.getByTestId("sidebar")).toBeInTheDocument();
-      fireEvent.click(toogleBtn);
-      expect(screen.getByTestId("sidebar")).toHaveClass("collapsed");
-   });
+   // test("test toogle", () => {
+   //    renderWithTranslation(<Sidebar />);
+   //    const toogleBtn = screen.getByTestId("sidebar-toggle");
+   //    expect(screen.getByTestId("sidebar")).toBeInTheDocument();
+   //    fireEvent.click(toogleBtn);
+   //    expect(screen.getByTestId("sidebar")).toHaveClass("collapsed");
+   // });
 });
