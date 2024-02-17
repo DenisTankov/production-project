@@ -29,6 +29,7 @@ jobs:
            if: always()
          - name: run storybook
            run: npm run storybook
+           if: always()
          - name: screenshot testing
            run: npm run test:ui
            if: always()
