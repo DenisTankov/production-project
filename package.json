@@ -9,9 +9,10 @@
       "build:dev": "webpack --env mode=development",
       "test:unit": "jest --config ./config/jest/jest.config.ts",
       "test:ui": "npx loki test",
+      "start:story": "storybook dev -p 6006 -c ./config/storybook",
       "test:ui:ok": "npx loki approve",
       "storybook": "storybook dev -p 6006 -c ./config/storybook",
-      "storybook:build": "storybook build -p 6006 -c ./config/storybook"
+      "storybook:build": "storybook build -c ./config/storybook"
    },
    "keywords": [],
    "author": "",
