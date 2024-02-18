@@ -24,10 +24,11 @@ jobs:
          - name: unit testing
            if: always()
            run: npm run test:unit
+
          - name: build storybook
-           run: npm run storybook build -c ./config/storybook --quiet && npx http-server storybook-static --port 6006
            if: always()
+           run: npm run storybook:build
 
          - name: screenshot testing
-           run: npm run test:ui
            if: always()
+           run: npm run test:ui
