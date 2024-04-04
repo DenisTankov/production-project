@@ -1,10 +1,18 @@
-// import { BugButton } from "app/providers/ErrorBoundary";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 const MainPage = () => {
    const { t } = useTranslation();
+   const [value, setValue] = useState("");
 
-   return <div>{t("Главная страница")}</div>;
+   const onChange = (val: string) => {
+      setValue(val);
+   };
+   return (
+      <div>
+         <div>{t("Главная страница")}</div>
+      </div>
+   );
 };
 
 export default MainPage;
