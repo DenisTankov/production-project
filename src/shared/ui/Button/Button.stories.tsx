@@ -71,6 +71,7 @@ export const Background: Story = {
       theme: ThemeButton.BACKGROUND,
    },
 };
+
 export const BackgroundInverted: Story = {
    args: {
       children: "Text",
@@ -101,5 +102,13 @@ export const SquareSizeXL: Story = {
       theme: ThemeButton.BACKGROUND_INVERTED,
       square: true,
       size: ButtonSize.XL,
+   },
+};
+
+export const Disabled: Story = {
+   args: {
+      children: "Text",
+      theme: ThemeButton.OUTLINE,
+      disabled: true,
    },
 };
