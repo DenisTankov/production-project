@@ -18,10 +18,9 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
       }),
    ];
 
-   plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
-
    if (isDev) {
       plugins.push(new webpack.HotModuleReplacementPlugin());
+      plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
    }
 
    return plugins;
