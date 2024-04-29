@@ -20,6 +20,7 @@ export const Primary: Story = {
       text: "Description Description Description",
    },
 };
+Primary.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const onlyTitle: Story = {
    args: {
