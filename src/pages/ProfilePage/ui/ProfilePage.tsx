@@ -25,7 +25,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
    }, [dispatch]);
 
    return (
-      <DynamicModuleLoader reducers={reducers}  removeAfterUnmount>
+      <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
          <div className={classNames("", {}, [className])}>
             <ProfileCard />
          </div>

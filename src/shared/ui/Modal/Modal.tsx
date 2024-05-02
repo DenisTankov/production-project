@@ -1,8 +1,8 @@
-import { classNames } from "shared/lib/classNames/classNames";
+import { useTheme } from "app/providers/ThemeProvider";
 import React, { ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import { Mods, classNames } from "shared/lib/classNames/classNames";
 import { Portal } from "shared/ui/Portal/Portal";
 import cls from "./Modal.module.scss";
-import { useTheme } from "app/providers/ThemeProvider";
 
 interface ModalProps {
    className?: string;
@@ -63,7 +63,7 @@ export const Modal = (props: ModalProps) => {
       };
    }, [isOpen, onKeyDown]);
 
-   const mods: Record<string, boolean> = {
+   const mods: Mods = {
       [cls.opened]: isOpen,
       [cls.isClosing]: isClosing,
    };
