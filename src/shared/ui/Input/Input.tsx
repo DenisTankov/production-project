@@ -53,6 +53,7 @@ export const Input = memo((props: InputProps) => {
             onChange={onChangeHandler}
             className={cls.input}
             readOnly={readonly}
+            pattern="^\+7[1-9]{10}$"
             {...otherProps}
          />
       </div>

@@ -8,5 +8,9 @@
    "Отменить": "Cancel",
    "Сохранить": "Save",
    "Ваш возраст": "Your age",
-   "Ваш город": "Your city"
+   "Ваш город": "Your city",
+   "Введите имя пользователя": "Enter your user name",
+   "Введите ссылку на ваш аватар": "Enter a link to your avatar",
+   "Укажите валюту": "Enter currency",
+   "Укажите страну": "Enter country"
 }
