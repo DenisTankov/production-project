@@ -120,11 +120,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                readonly={readonly}
             />
             <Input
-               value={
-                  __PROJECT__ !== "storybook"
-                     ? data?.avatar
-                     : "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
-               }
+               value={data?.avatar}
                placeholder={t("Введите ссылку на ваш аватар")}
                className={cls.input}
                onChange={onChangeAvatar}
