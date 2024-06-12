@@ -1,9 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { StoreDecorator } from "shared/config/storybook/StoreDecorator";
-import { ProfileCard } from "entities/Profile";
 import { Country } from "entities/Country";
 import { Currency } from "entities/Currency";
-import avatar from "shared/assets/tests/storybook.jpg";
+import { ProfileCard } from "entities/Profile";
 
 const meta = {
    title: "entities/ProfileCard",
@@ -26,7 +24,7 @@ export const Primary: Story = {
          first: "Denis",
          city: "Novosibirsk",
          currency: Currency.USD,
-         avatar,
+         avatar: "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg",
       },
    },
 };
@@ -42,12 +40,3 @@ export const withError: Story = {
       error: "true",
    },
 };
-
-// Primary.decorators = [
-//    StoreDecorator({
-//       loginForm: {
-//          username: "bob",
-//          password: "123",
-//       },
-//    }),
-// ];
