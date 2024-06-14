@@ -1,11 +1,11 @@
-import { classNames } from "shared/lib/classNames/classNames";
 import { useTheme } from "app/providers/ThemeProvider";
 import { AppRouter } from "app/providers/router";
-import { NavBar } from "widgets/NavBar";
-import { Sidebar } from "widgets/Sidebar";
+import { getUserInited, userActions } from "entities/User";
 import { Suspense, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserInited, userActions } from "entities/User";
+import { classNames } from "shared/lib/classNames/classNames";
+import { NavBar } from "widgets/NavBar";
+import { Sidebar } from "widgets/Sidebar";
 
 const App = () => {
    const { theme } = useTheme();
