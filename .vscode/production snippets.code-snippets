@@ -6,27 +6,56 @@
          "import { classNames } from \"shared/lib/classNames/classNames\";",
          "import cls from \"./$TM_FILENAME_BASE.module.scss\";",
          "import { useTranslation } from \"react-i18next\";",
-
+         "import { memo } from \"react\";",
          "",
          "interface $TM_FILENAME_BASE$Props {",
          "   className?: string;",
          "}",
          "",
-         "export const $TM_FILENAME_BASE = ({ className }: $TM_FILENAME_BASE$Props) => {",
+         "export const $TM_FILENAME_BASE = memo(({ className }: $TM_FILENAME_BASE$Props) => {",
          "const { t } = useTranslation();",
          "",
          "   return (",
          "      <div className={classNames(cls.$TM_FILENAME_BASE, {}, [className])}>",
          "      </div>",
          "   );",
-         "};",
+         "});",
          ""
       ],
       "description": "create react component"
    },
    "create test template": {
       "prefix": "ts",
-      "body": ["describe(\"$TM_FILENAME_BASE\", () => {", "   test(\"\", () => {      ", "      expect().toEqual();", "   });", "});", ""],
+      "body": [
+         "describe(\"$TM_FILENAME_BASE\", () => {",
+         "   test(\"\", () => {      ",
+         "      expect().toEqual();",
+         "   });",
+         "});",
+         ""
+      ],
       "description": "create test template"
+   },
+   "Create redux slice": {
+      "prefix": "slice",
+      "body": [
+         "import { createSlice } from '@reduxjs/toolkit';",
+         "",
+         "import { ${TM_FILENAME_BASE/(^..+)(?=[A-Z]).+$/${1:/capitalize}$2/}Schema } from '../types/${TM_FILENAME_BASE/(?=[A-Z]).+$/$1/}';",
+         "",
+         "const initialState: ${TM_FILENAME_BASE/(^..+)(?=[A-Z]).+$/${1:/capitalize}$2/}Schema = {",
+         "\t$1",
+         "};",
+         "",
+         "export const ${TM_FILENAME_BASE} = createSlice({",
+         "\tname: '${TM_FILENAME_BASE/(?=[A-Z]).+$/$1/}',",
+         "\tinitialState,",
+         "\treducers: {$0},",
+         "});",
+         "",
+         "export const { actions: ${TM_FILENAME_BASE/(?=[A-Z]).+$/$1/}Actions } = ${TM_FILENAME_BASE};",
+         "export const { reducer: ${TM_FILENAME_BASE/(?=[A-Z]).+$/$1/}Reducer } = ${TM_FILENAME_BASE};\n"
+      ],
+      "description": "template redux slice"
    }
 }
