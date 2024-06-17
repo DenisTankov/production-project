@@ -1,21 +1,9 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { ArticleDetails } from "./ArticleDetails";
-import { StoreDecorator } from "shared/config/storybook/StoreDecorator";
-import { Article, ArticleBlockType, ArticleType } from "../../model/types/article";
-import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
-import { Theme } from "app/providers/ThemeProvider";
+import { fetchArticleById } from "../services/fetchArticleById/fetchArticleById";
+import { Article, ArticleBlockType, ArticleType } from "../types/article";
+import { ArticleDetailsSchema } from "../types/articleDetailsSchema";
+import { articleDetailsReducer } from "./articleDetailsSlice";
 
-export default {
-   title: "entities/ArticleDetails",
-   component: ArticleDetails,
-   argTypes: {
-      backgroundColor: { control: "color" },
-   },
-} as ComponentMeta<typeof ArticleDetails>;
-
-const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;
-
-const article: Article = {
+const data: Article = {
    id: "1",
    title: "Javascript news",
    subtitle: "Что нового в JS за 2022 год?",
@@ -85,43 +73,25 @@ const article: Article = {
    ],
 };
 
-export const Normal = Template.bind({});
-Normal.args = {};
-Normal.decorators = [
-   StoreDecorator({
-      articleDetails: {
-         data: article,
-      },
-   }),
-];
+test("test fetch article by id pending", () => {
+   const state: DeepPartial<ArticleDetailsSchema> = {
+      isLoading: false,
+   };
 
-export const Loading = Template.bind({});
-Loading.args = {};
-Loading.decorators = [
-   StoreDecorator({
-      articleDetails: {
-         isLoading: true,
-      },
-   }),
-];
+   expect(articleDetailsReducer(state as ArticleDetailsSchema, fetchArticleById.pending)).toEqual({
+      isLoading: true,
+   });
+});
 
-export const LoadingDark = Template.bind({});
-LoadingDark.args = {};
-LoadingDark.decorators = [
-   StoreDecorator({
-      articleDetails: {
-         isLoading: true,
-      },
-   }),
-   ThemeDecorator(Theme.DARK),
-];
+test("test fetch article by id fullfiled", () => {
+   const state: DeepPartial<ArticleDetailsSchema> = {
+      isLoading: true,
+   };
 
-export const Error = Template.bind({});
-Error.args = {};
-Error.decorators = [
-   StoreDecorator({
-      articleDetails: {
-         error: "error",
-      },
-   }),
-];
+   expect(
+      articleDetailsReducer(state as ArticleDetailsSchema, fetchArticleById.fulfilled(data, "", ""))
+   ).toEqual({
+      isLoading: false,
+      data,
+   });
+});
