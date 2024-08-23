@@ -103,6 +103,7 @@ Loading.decorators = [
          isLoading: true,
       },
    }),
+   ThemeDecorator(Theme.LIGHT),
 ];
 
 export const LoadingDark = Template.bind({});
