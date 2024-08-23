@@ -5,7 +5,6 @@ import { Currency } from "entities/Currency";
 import { StoreDecorator } from "shared/config/storybook/StoreDecorator";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
 import ProfilePage from "./ProfilePage";
-import avatar from "shared/assets/tests/storybook.jpg";
 
 const meta = {
    title: "pages/ProfilePage",
@@ -32,7 +31,6 @@ Normal.decorators = [
             first: "Denis",
             city: "Novosibirsk",
             currency: Currency.RUB,
-            avatar: "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg",
          },
       },
    }),
@@ -53,7 +51,6 @@ Dark.decorators = [
             first: "Denis",
             city: "Novosibirsk",
             currency: Currency.RUB,
-            avatar: "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg",
          },
       },
    }),
