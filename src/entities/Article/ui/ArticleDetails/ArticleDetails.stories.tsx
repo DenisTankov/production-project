@@ -1,9 +1,9 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { ArticleDetails } from "./ArticleDetails";
-import { StoreDecorator } from "shared/config/storybook/StoreDecorator";
-import { Article, ArticleBlockType, ArticleType } from "../../model/types/article";
-import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
+import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { Theme } from "app/providers/ThemeProvider";
+import { StoreDecorator } from "shared/config/storybook/StoreDecorator";
+import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
+import { Article, ArticleBlockType, ArticleType } from "../../model/types/article";
+import { ArticleDetails } from "./ArticleDetails";
 
 export default {
    title: "entities/ArticleDetails",
