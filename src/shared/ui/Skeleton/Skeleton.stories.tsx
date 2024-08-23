@@ -13,19 +13,6 @@ export default {
 
 const Template: ComponentStory<typeof Skeleton> = (args) => <Skeleton {...args} />;
 
-export const Normal = Template.bind({});
-Normal.args = {
-   width: "100%",
-   height: 200,
-};
-
-export const Circle = Template.bind({});
-Circle.args = {
-   border: "50%",
-   height: 100,
-   width: 100,
-};
-
 export const NormalDark = Template.bind({});
 NormalDark.args = {
    width: "100%",
