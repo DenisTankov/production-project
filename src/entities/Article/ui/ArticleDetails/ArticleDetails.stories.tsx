@@ -67,16 +67,6 @@ Normal.decorators = [
    }),
 ];
 
-export const Loading = Template.bind({});
-Loading.args = {};
-Loading.decorators = [
-   StoreDecorator({
-      articleDetails: {
-         isLoading: true,
-      },
-   }),
-];
-
 export const LoadingDark = Template.bind({});
 LoadingDark.args = {};
 LoadingDark.decorators = [

@@ -1,6 +1,8 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 import { CommentList } from "./CommentList";
+import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
+import { Theme } from "app/providers/ThemeProvider";
 
 export default {
    title: "entities/Comment/CommentList",
@@ -28,8 +30,9 @@ Normal.args = {
    ],
 };
 
-export const Loading = Template.bind({});
-Loading.args = {
+export const LoadingDark = Template.bind({});
+LoadingDark.args = {
    comments: [],
    isLoading: true,
 };
+LoadingDark.decorators = [ThemeDecorator(Theme.DARK)];
