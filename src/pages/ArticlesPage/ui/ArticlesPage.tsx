@@ -1,4 +1,4 @@
-import { Article, ArticleList } from "entities/Article";
+import { Article, ArticleList, ArticleView } from "entities/Article";
 import { FC, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/classNames/classNames";
@@ -19,6 +19,12 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
       img: "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       views: 1022,
       createdAt: "26.02.2022",
+      user: {
+         id: "1",
+         username: "Denis",
+         avatar:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png",
+      },
       type: ["IT"],
       blocks: [
          {
@@ -84,7 +90,13 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
 
    return (
       <div className={classNames(cls.articlesPage, {}, [className])}>
-         <ArticleList articles={[article]} />
+         <ArticleList
+            isLoading={true}
+            view={ArticleView.BIG}
+            articles={new Array(16)
+               .fill(0)
+               .map((item, index) => ({ ...article, id: String(index) }))}
+         />
       </div>
    );
 };
