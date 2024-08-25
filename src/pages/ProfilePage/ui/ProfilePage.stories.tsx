@@ -23,6 +23,7 @@ export const Normal: Story = {
 Normal.decorators = [
    StoreDecorator({
       profile: {
+         readonly: true,
          form: {
             username: "admin",
             age: 34,
@@ -31,6 +32,8 @@ Normal.decorators = [
             first: "Denis",
             city: "Novosibirsk",
             currency: Currency.RUB,
+            avatar:
+               "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png",
          },
       },
    }),
