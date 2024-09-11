@@ -25,6 +25,7 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { Text, TextTheme } from "shared/ui/Text/Text";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
+import { Page } from "shared/ui/Page/Page";
 
 const reducers: ReducersList = {
    profile: profileReducer,
@@ -115,7 +116,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 
    return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-         <div className={classNames("", {}, [className])}>
+         <Page className={classNames("", {}, [className])}>
             <ProfilePageHeader />
             {validateErrors?.length &&
                validateErrors.map((err) => (
@@ -135,7 +136,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
                onChangeCurrency={onChangeCurrency}
                onChangeCountry={onChangeCountry}
             />
-         </div>
+         </Page>
       </DynamicModuleLoader>
    );
 };
