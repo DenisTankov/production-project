@@ -16,7 +16,7 @@ const article = {
    id: "1",
    title: "Javascript news asfasjf asfjkask f",
    subtitle: "Что нового в JS за 2022 год?",
-   img: "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+   img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Python_logo_01.svg/1200px-Python_logo_01.svg.png?20210503135843",
    views: 1022,
    createdAt: "26.02.2022",
    user: {

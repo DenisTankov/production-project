@@ -17,7 +17,7 @@ export const Page = memo((props: PageProps) => {
    useInfiniteScroll({
       triggerRef,
       wrapperRef,
-      callback: onScrollEnd, 
+      callback: onScrollEnd,
    });
 
    return (
