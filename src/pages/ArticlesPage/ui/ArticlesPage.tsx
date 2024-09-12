@@ -1,5 +1,5 @@
 import { ArticleList, ArticleView, ArticleViewSelector } from "entities/Article";
-import { memo, useCallback, useEffect } from "react";
+import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { classNames } from "shared/lib/classNames/classNames";
@@ -14,18 +14,17 @@ import {
    getArticlesPageError,
    getArticlesPageHasMore,
    getArticlesPageIsLoading,
-   getArticlesPageLimit,
    getArticlesPageNum,
    getArticlesPageView,
 } from "../model/selectors/articlesPageSelectors";
-import { fetchArticlesList } from "../model/services/fetchArticlesList/fetchArticlesList";
+import { fetchNextArticlesPage } from "../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
+import { initArticlesPage } from "../model/services/initArticlesPage/initArticlesPage";
 import {
    articlesPageActions,
    articlesPageReducer,
    getArticles,
 } from "../model/slices/articlesPageSlice";
 import cls from "./ArticlesPage.module.scss";
-import { fetchNextArticlesPage } from "../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 
 interface ArticlesPageProps {
    className?: string;
@@ -58,8 +57,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
    }, [dispatch]);
 
    useInitialEffect(() => {
-      dispatch(articlesPageActions.initState());
-      dispatch(fetchArticlesList({ page: 1 }));
+      dispatch(initArticlesPage());
    });
 
    // useEffect(() => {
@@ -68,7 +66,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
    // }, [view]);
 
    return (
-      <DynamicModuleLoader reducers={reducers}>
+      <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
          <Page
             onScrollEnd={onLoadNextPart}
             className={classNames(cls.articlesPage, {}, [className])}
