@@ -12,7 +12,7 @@ i18n
 
    .init({
       fallbackLng: false,
-      debug: __IS_DEV__ ? true : false,
+      // debug: __IS_DEV__ ? false : false,
 
       interpolation: {
          escapeValue: false,
