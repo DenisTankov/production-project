@@ -1,4 +1,4 @@
-import { ArticleList, ArticleView, ArticleViewSelector } from "entities/Article";
+import { ArticleList } from "entities/Article";
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -19,13 +19,10 @@ import {
 } from "../model/selectors/articlesPageSelectors";
 import { fetchNextArticlesPage } from "../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 import { initArticlesPage } from "../model/services/initArticlesPage/initArticlesPage";
-import {
-   articlesPageActions,
-   articlesPageReducer,
-   getArticles,
-} from "../model/slices/articlesPageSlice";
+import { articlesPageReducer, getArticles } from "../model/slices/articlesPageSlice";
 import cls from "./ArticlesPage.module.scss";
 import { ArticlesPageFilters } from "./ArticlesPageFilters/ArticlesPageFilters";
+import { useSearchParams } from "react-router-dom";
 
 interface ArticlesPageProps {
    className?: string;
@@ -45,13 +42,14 @@ const ArticlesPage = (props: ArticlesPageProps) => {
    const page = useSelector(getArticlesPageNum);
    const hasMore = useSelector(getArticlesPageHasMore);
    const view = useSelector(getArticlesPageView);
+   let [searchParams] = useSearchParams();
 
    const onLoadNextPart = useCallback(() => {
       dispatch(fetchNextArticlesPage());
    }, [dispatch]);
 
    useInitialEffect(() => {
-      dispatch(initArticlesPage());
+      dispatch(initArticlesPage(searchParams));
    });
 
    // useEffect(() => {
@@ -66,7 +64,12 @@ const ArticlesPage = (props: ArticlesPageProps) => {
             className={classNames(cls.articlesPage, {}, [className])}
          >
             <ArticlesPageFilters />
-            <ArticleList isLoading={isLoading} view={view} articles={articles} className={cls.list}/>
+            <ArticleList
+               isLoading={isLoading}
+               view={view}
+               articles={articles}
+               className={cls.list}
+            />
          </Page>
       </DynamicModuleLoader>
    );

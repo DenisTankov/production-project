@@ -1,17 +1,17 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ArticleSortSelector } from './ArticleSortSelector';
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { ArticleSortSelector } from "./ArticleSortSelector";
 
 export default {
-   title: 'shared/ArticleSortSelector',
+   title: "entities/Article/ArticleSortSelector",
    component: ArticleSortSelector,
    argTypes: {
-      backgroundColor: { control: 'color' },
+      backgroundColor: { control: "color" },
    },
 } as ComponentMeta<typeof ArticleSortSelector>;
 
-const Template: ComponentStory<typeof ArticleSortSelector> = (args) => <ArticleSortSelector { ...args } />;
+const Template: ComponentStory<typeof ArticleSortSelector> = (args) => (
+   <ArticleSortSelector {...args} />
+);
 
 export const Normal = Template.bind({});
-Normal.args = {
-
-};
+Normal.args = {};
