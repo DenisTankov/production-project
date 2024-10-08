@@ -7,7 +7,8 @@
    padding: 20px;
 }
 
-.links {
+.links,
+.dropdown {
    margin-left: auto;
 }
 
@@ -15,10 +16,7 @@
    margin-right: 15px;
 }
 
-.appName { 
+.appName {
    width: var(--sidebar-width);
    margin-left: 15px;
-}
-
-.createBtn {
 }
