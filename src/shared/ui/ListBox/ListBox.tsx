@@ -72,7 +72,6 @@ export function Listbox(props: ListBoxProps) {
                               [cls.disabled]: item.disabled,
                            })}
                         >
-                           {selected && "!!!"}
                            {item.content}
                         </li>
                      )}
